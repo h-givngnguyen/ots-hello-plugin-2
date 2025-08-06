@@ -12,8 +12,8 @@ class DefaultConfig:
     # This file will be loaded first, followed by user overrides from config.yml
     # Make sure not to duplicate any setting name in OpenTAKServers' defaultconfig.py
 
-    OTS_PLUGIN_TEMPLATE_ENABLED = True  # TODO: This setting is required. Rename it with your plugin's name
-    OTS_PLUGIN_TEMPLATE_SOME_SETTING = "my_setting_value"
+    OTS_HELLO_PLUGIN_ENABLED = True  # TODO: This setting is required. Rename it with your plugin's name
+    OTS_HELLO_PLUGIN_SOME_SETTING = "my_setting_value"
 
     # TODO: Use this method to validate config values input by the user in the OTS web UI
     # Make sure the return dict is {"success": False, "error", "Some helpful error message"} if the input is invalid,
@@ -24,7 +24,7 @@ class DefaultConfig:
             for key, value in config.items():
                 if key not in DefaultConfig.__dict__.keys():
                     return {"success": False, "error": f"{key} is not a valid config key"}, 400
-                elif key == "OTS_PLUGIN_TEMPLATE_SOME_SETTING" and type(key) is not str:
+                elif key == "OTS_HELLO_PLUGIN_SOME_SETTING" and type(key) is not str:
                     return {"success": False, "error": f"{key} should be a string"}, 400
 
             return {"success": True, "error": ""}
