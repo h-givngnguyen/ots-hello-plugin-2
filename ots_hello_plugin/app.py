@@ -29,6 +29,8 @@ class HelloPlugin(Plugin):
         self._load_config()
         self.load_metadata()
 
+        app.register_blueprint(self.blueprint)
+
         try:
             # TODO: If your plugin needs to run in the background, do that here.
             # See OTS-AISStream-Plugin for an example
